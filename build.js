@@ -18,10 +18,10 @@ function getCurrentPlatform(){
 builder.build({
     targets: (process.argv[2] != null && Platform[process.argv[2]] != null ? Platform[process.argv[2]] : getCurrentPlatform()).createTarget(),
     config: {
-        appId: 'helioslauncher',
-        productName: 'Helios Launcher',
+        appId: 'flootlauncher',
+        productName: 'FlootLauncher',
         artifactName: '${productName}-setup-${version}.${ext}',
-        copyright: 'Copyright © 2018-2020 Daniel Scalzi',
+        copyright: 'Copyright © 2020 HerrBeef',
         directories: {
             buildResources: 'build',
             output: 'dist'
@@ -35,10 +35,13 @@ builder.build({
             ]
         },
         nsis: {
-            oneClick: false,
-            perMachine: false,
+            include: 'build/install.nsh',
+            oneClick: true,
             allowElevation: true,
-            allowToChangeInstallationDirectory: true
+            allowToChangeInstallationDirectory: false,
+            createDesktopShortcut: true,
+            createStartMenuShortcut: true,
+            runAfterFinish: true
         },
         mac: {
             target: 'dmg',
@@ -46,8 +49,8 @@ builder.build({
         },
         linux: {
             target: 'AppImage',
-            maintainer: 'Daniel Scalzi',
-            vendor: 'Daniel Scalzi',
+            maintainer: 'HerrBeef',
+            vendor: 'Flootly',
             synopsis: 'Modded Minecraft Launcher',
             description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.',
             category: 'Game'
