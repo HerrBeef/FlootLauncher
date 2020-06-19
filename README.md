@@ -2,7 +2,7 @@
 
 <h1 align="center">FlootLauncher</h1>
 
-<em><h5 align="center">(forked from Helios Launcher)</h5></em>
+[<em><h5 align="center">(forked from Helios Launcher)</h5></em>](https://github.com/dscalzi/HeliosLauncher)
 
 [<img src="https://img.shields.io/github/downloads/HerrBeef/FlootLauncher/total.svg?style=for-the-badge" alt="downloads">](https://github.com/HerrBeef/FlootLauncher/releases) [<img src="https://forthebadge.com/images/badges/built-with-love.svg"  height="28px" alt="stark">](https://flootly.com)
 
