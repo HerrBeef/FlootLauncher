@@ -196,10 +196,8 @@ class Util {
 
     static isAutoconnectBroken(forgeVersion) {
 
-        const forgeVer = forgeVersion.split('-')[1]
-
         const minWorking = [31, 2, 15]
-        const verSplit = forgeVer.split('.').map(v => Number(v))
+        const verSplit = forgeVersion.split('.').map(v => Number(v))
 
         if(verSplit[0] === 31) {
             for(let i=0; i<minWorking.length; i++) {
@@ -1011,7 +1009,7 @@ class AssetGuard extends EventEmitter {
             }
             let buf = fs.readFileSync(filePath)
             let calcdhash = AssetGuard._calculateHash(buf, algo)
-            return calcdhash === hash
+            return calcdhash === hash.toLowerCase()
         }
         return false
     }

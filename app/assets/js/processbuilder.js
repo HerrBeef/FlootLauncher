@@ -184,8 +184,8 @@ class ProcessBuilder {
         }
     }
 
-    _isBelowOneDotSeven() {
-        return Number(this.forgeData.id.split('-')[0].split('.')[1]) <= 7
+    _lteMinorVersion(version) {
+        return Number(this.forgeData.id.split('-')[0].split('.')[1]) <= Number(version)
     }
 
     /**
@@ -194,7 +194,7 @@ class ProcessBuilder {
      */
     _requiresAbsolute(){
         try {
-            if(this._isBelowOneDotSeven()) {
+            if(this._lteMinorVersion(9)) {
                 return false
             }
             const ver = this.forgeData.id.split('-')[2]
@@ -478,7 +478,9 @@ class ProcessBuilder {
         try {
             isAutoconnectBroken = Util.isAutoconnectBroken(this.forgeData.id.split('-')[2])
         } catch(err) {
+            logger.error(err)
             logger.error('Forge version format changed.. assuming autoconnect works.')
+            logger.debug('Forge version:', this.forgeData.id)
         }
 
         if(isAutoconnectBroken) {
@@ -569,7 +571,7 @@ class ProcessBuilder {
         
         // Mod List File Argument
         mcArgs.push('--modListFile')
-        if(this._isBelowOneDotSeven()) {
+        if(this._lteMinorVersion(9)) {
             mcArgs.push(path.basename(this.fmlDir))
         } else {
             mcArgs.push('absolute:' + this.fmlDir)
