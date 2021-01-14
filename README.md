@@ -1,4 +1,4 @@
-<p align="center"><img src="./app/assets/images/SealCircle.png" width="150px" height="150px" alt=""></p>
+<p align="center"><img src="./app/assets/images/Logo.png" width="150px" height="150px" alt=""></p>
 
 <h1 align="center">FlootLauncher</h1>
 
