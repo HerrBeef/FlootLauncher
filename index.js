@@ -99,8 +99,10 @@ ipcMain.on('openMSALoginWindow', (ipcEvent, args) => {
         minWidth: 600,
         minHeight: 400,
         width: 600,
-        height: 400,
-        contextIsolation: false
+        height: 550,
+        contextIsolation: false,
+        icon: getPlatformIcon('Logo'),
+        backgroundColor: '#171614'
     })
 
     MSALoginWindow.on('closed', () => {
@@ -125,7 +127,7 @@ ipcMain.on('openMSALoginWindow', (ipcEvent, args) => {
     })
 
     MSALoginWindow.removeMenu()
-    MSALoginWindow.loadURL('https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=client_idhere&response_type=code&scope=XboxLive.signin%20offline_access&redirect_uri=https://login.microsoftonline.com/common/oauth2/nativeclient')
+    MSALoginWindow.loadURL('https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=89716fed-5081-425f-908b-7cd76505f760&response_type=code&scope=XboxLive.signin%20offline_access&redirect_uri=https://login.microsoftonline.com/common/oauth2/nativeclient')
 })
 
 
